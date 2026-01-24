@@ -1,0 +1,249 @@
+:root {
+    --primary-color: #e63946; /* The red highlight */
+    --text-dark: #0a192f;    /* Dark navy for headings */
+    --text-muted: #6b7280;   /* Gray for descriptions */
+    --bg-light: #f3f4f6;     /* Light gray background */
+    --card-bg: #ffffff;      /* White card background */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8fafc;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+/* Header Styling */
+.team-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.sub-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-header h1 {
+    color: var(--text-dark);
+    font-size: 2.5rem;
+    margin: 15px 0;
+    font-weight: 800;
+}
+
+.team-header p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+/* Grid Layout */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+
+.team-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+    
+    /* Transitions for color, transform, and shadow */
+    /* 0.5s makes the background color change 'slowly' */
+    transition: background-color 0.5s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+
+.team-card:hover {
+    /* Changes background to the requested deep navy slowly */
+    background-color: #051932; 
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2);
+}
+/* --- Ensuring Text remains readable on Dark Background --- */
+/* This part ensures that when the card turns dark, the text turns white */
+.team-card:hover h3, 
+.team-card:hover p {
+    color: #ffffff;
+    transition: color 0.5s ease;
+}
+
+/* Keeping the red designation and icons visible on dark blue */
+.team-card:hover .designation {
+    color: #ff4d4d; /* A slightly brighter red for better contrast on dark blue */
+}
+
+.team-card:hover .social-links a {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.team-card:hover .social-links a:hover {
+    background: var(--primary-red);
+}
+
+/* Image Section */
+.image-wrapper {
+    flex-shrink: 0;
+    width: 160px;
+    height: 180px;
+    background-color: #e5e7eb; 
+    border-radius: 15px;
+    overflow: hidden;
+    margin-right: 25px;
+}
+
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Content Section */
+.content h3 {
+    color: var(--text-dark);
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.designation {
+    color: var(--primary-color);
+    display: block;
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.content p {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    color: #9ca3af;
+    background: #f3f4f6;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* --- Responsive Queries --- */
+
+@media (max-width: 992px) {
+    .team-grid {
+        grid-template-columns: 1fr; /* Single column for tablets/mobile */
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+/* @media (max-width: 600px) {
+    .team-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+    
+    .image-wrapper {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
+        height: 250px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+    
+    .team-header h1 {
+        font-size: 1.8rem;
+    }
+} */
+@media (max-width: 600px) {
+    .image-wrapper {
+        margin-right: 0;
+        margin-bottom: 25px;
+        width: 100%; /* Take full width of the card */
+        height: auto; /* Let the height be determined by the aspect ratio */
+        aspect-ratio: 4 / 5; /* Keeps a professional portrait shape */
+        max-height: 350px; /* Prevents the image from being too tall on big phones */
+    }
+
+    .team-card {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+    .social-links {
+        justify-content: center;
+    }
+    
+    .team-header h1 {
+        font-size: 1.8rem;
+    }
+}
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-content: center; 
+}
+
+
+.centered-member {
+    grid-column: 1 / span 2; 
+    max-width: 535px;        
+    margin: 0 auto;         
+}
+
+
+@media (max-width: 992px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .centered-member {
+        grid-column: auto;
+        max-width: 100%;
+    }
+}

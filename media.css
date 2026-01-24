@@ -1,0 +1,193 @@
+/* for smooth scrolling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+/* ...................  */
+.hero-text-box p{
+    color: #fff;
+}
+
+@media  (max-width: 768px) {
+    /* .site-header {
+        height: auto;
+        flex-direction: column;
+    } */
+ .site-header {
+    height: 60px;
+    background: var(--primary-red);
+  }
+
+  .logo-area {
+    width: auto;
+    background: transparent;
+    clip-path: none;
+  }
+
+  .top-info-bar {
+    display: none !important;
+  }
+    .logo-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+
+    #hamburger{
+        height: 30px;
+        width: 30px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ham {
+        width: 24px;
+        height: 2px;
+        background-color: #ffffff;
+        position: relative;
+        border-radius: 2px;
+    }
+   .ham::before,
+    .ham::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  left: 0;
+    }
+
+    .ham::before {
+  top: -7px;
+}
+
+.ham::after {
+  top: 7px;
+}
+    #hamm:checked ~ .nav-extra{
+        top: -20px;
+        transition:  all 0.3s ease-in-out;
+        visibility: visible;
+    }
+    
+   
+    /* added spaces in navlink buttons */
+    .nav-links li{
+        padding: 12px 0;
+        text-align: center;
+    }
+    .nav-extra{
+       display: none !important;
+    }
+
+
+    .hero-left-dark {
+        /* padding: 80px 5%; */
+        /* height: auto; */
+        display: none;
+    }
+
+      .hero-right-image {
+    height: auto;
+    min-height: 280px; /* optional: for nice look */
+    background-size: cover;
+    background-position: center;
+  }
+    .hero-right-image::before {
+        display: none;
+    }
+
+    .hero-text-box h1 {
+        font-size: 38px;
+    }
+    .logo-text {
+        font-size: 18px !important; /* Medium size for mobile */
+        padding: 0 !important;
+        color: #ffffff !important;
+        white-space: nowrap !important;
+        font-weight: 700 !important;
+    }
+
+    .main-nav {
+        height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: auto;
+  }
+
+   #hamburger {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+    
+
+    /* HAMBURGER BARS */
+  .ham,
+  .ham::before,
+  .ham::after {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    position: relative;
+  }
+  #hamm{
+    display: none;
+  }
+   .nav-links {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    display: none;
+  }
+
+  #hamm:checked ~ .nav-links {
+    display: flex;
+  }
+.nav-links li {
+    padding: 12px 0;
+    text-align: center;
+  }
+
+  .nav-extra {
+    display: none !important;
+  }
+}
+/* Sticky header effect */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+/* Shrink effect on scroll */
+.site-header.scrolled {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    background: #ffffff;
+}

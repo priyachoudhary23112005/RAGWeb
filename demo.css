@@ -1,0 +1,292 @@
+/* for smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+/* ...................  */
+
+/* --- 1. VARIABLES & RESET --- */
+:root {
+    --primary-red: #e61e25;
+    --primary-red-hover: #c2151b;
+    --navy-dark: #0a1d37;
+    --text-white: #ffffff;
+    --text-gray: #a0aec0;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+  padding: 0;
+}
+
+/* --- 2. HEADER & LOGO AREA --- */
+.site-header {
+    display: flex;
+    width: 100%;
+    height: 92px;
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+
+.logo-area {
+  width: 280px;
+  background: var(--primary-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Updated polygon to ensure no gap at the top */
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  z-index: 10; /* Ensures the red block sits on top of the blue bar */
+}
+
+.logo-text {
+    position: relative;
+    padding: 20px;
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.header-content-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-info-bar {
+  background-color: var(--navy-dark);
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  color: white;
+  font-size: 13px;
+  /* Add negative margin to pull it under the red slant if needed */
+  margin-left: -50px; 
+  padding-left: 70px; /* Offset padding to keep text visible */
+}
+
+.contact-meta span {
+    margin-right: 25px;
+    cursor: default;
+}
+
+.contact-meta i {
+    color: var(--primary-red);
+    margin-right: 8px;
+}
+
+.social-icons i {
+    margin-left: 18px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.social-icons i:hover {
+    color: var(--primary-red);
+    transform: translateY(-2px);
+}
+
+/* hamburger MENU  */
+#hamburger{
+   display: none;
+}
+
+.main-nav {
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0 auto;
+}
+
+
+/* INPUT FOR CHECKED */
+#hamm{
+    display: none;
+}
+
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    padding: 10px 15px;
+    font-size: 15px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 15px;
+    background-color: var(--primary-red);
+    transition: var(--transition);
+}
+
+.nav-links li a:hover {
+    color: var(--primary-red);
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: calc(100% - 30px);
+}
+
+.nav-extra {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-extra i {
+    cursor: pointer;
+    font-size: 18px;
+    transition: var(--transition);
+}
+
+.nav-extra i:hover {
+    color: var(--primary-red);
+}
+
+.quote-btn {
+    background: var(--navy-dark);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: 2px solid var(--navy-dark);
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.quote-btn:hover {
+    background: var(--primary-red);
+    color: var(--navy-dark);
+    border: 2px solid var(--primary-red);
+}
+
+/* --- 4. HERO SECTION --- */
+.hero-split {
+    display: flex;
+    /* height: calc(100vh - 120px); */
+    height: 600px;
+    /* height: calc(auto + 300px); */
+    margin-top: 0;
+}
+
+.hero-left-dark {
+    flex: 1.2;
+    background-color: var(--navy-dark);
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+    height: auto;
+}
+
+/* The Decorative Red Outline Frame */
+/* .decorative-outline {
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    bottom: 15%;
+    right: 5%;
+    border: 2px solid var(--primary-red);
+    opacity: 0.5;
+    pointer-events: none;
+} */
+
+.hero-text-box {
+    color: white;
+    max-width: 600px;
+    z-index: 5;
+    position: relative;
+    border: red 1px solid;
+    padding: 10px 20px;
+}
+
+.hero-text-box h1 {
+    font-size: 40px;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    font-weight: 800;
+}
+
+.hero-text-box p {
+    /* color: var(--text-gray); */
+    color: #555555;
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.red-action-btn {
+    background: var(--primary-red);
+    color: white;
+    padding: 18px 45px;
+    border: none;
+    border-radius: 35px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    position: absolute;
+    /* bottom: -7%; */
+    transform: translateY(-30%);
+}
+
+.red-action-btn:hover {
+    background-color: var(--primary-red-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(230, 30, 37, 0.4);
+}
+
+.hero-right-image {
+    flex: 1;
+    background: url('assets/final_image.jpeg') no-repeat center center/cover;
+    position: relative;
+}
+
+/* Slanted Divider Overlay */
+.hero-right-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 100%;
+    background: var(--navy-dark);
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+}
+
+/* Bottom text some-bio */
+#bottom-text{
+    margin: 0 20px 0 20px;
+}
+

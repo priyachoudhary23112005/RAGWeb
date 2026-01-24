@@ -1,0 +1,206 @@
+:root {
+    --bg-navy: #0a1120;
+    --red-brand: #e62e2d;
+    --white: #ffffff;
+    --gray-links: #b0b0b0;
+}
+
+/* Container Reset */
+.footer-wrapper {
+    background-color: var(--bg-navy);
+    color: var(--white);
+    padding: 0;
+    margin-top: 100px; /* Space for top red bar */
+    width: 100%;
+}
+
+.footer-center-container {
+    max-width: 1250px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Red Contact Bar - Floating at top */
+.contact-header {
+    background-color: var(--red-brand);
+    width: 95%;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-around;
+    padding: 18px 10px;
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    flex-wrap: wrap;
+}
+
+/* Flexbox Layout to handle Left, Middle, and Right positioning */
+.footer-main-layout {
+    display: flex;
+    justify-content: space-between; /* This pushes partner section to the right */
+    align-items: flex-start;
+    padding: 80px 20px 30px 20px; /* Reduced bottom padding */
+    gap: 30px;
+}
+
+/* Section styling */
+.footer-section {
+    flex: 1; /* Allows columns to share space */
+}
+
+/* Brand Section (Left) */
+.brand-contacts h2 { font-size: 22px; margin-bottom: 15px; }
+.inline-info p {
+    margin: 4px 0;
+    white-space: nowrap; /* Forces email/labels on same line */
+    font-size: 14px;
+}
+.inline-info a { color: var(--white); text-decoration: none; }
+
+/* Partner Section (Right) */
+.partner-right {
+    max-width: 300px; /* Constrains the width of the right block */
+    text-align: left;
+}
+
+/* Typography & Titles */
+.underlined-title {
+    font-size: 18px;
+    border-bottom: 2px solid var(--red-brand);
+    display: inline-block;
+    padding-bottom: 4px;
+    margin-bottom: 20px;
+}
+
+.clean-links { list-style: none; padding: 0; margin: 0; }
+.clean-links li { margin-bottom: 10px; }
+.clean-links a { 
+    color: var(--gray-links); 
+    text-decoration: none; 
+    font-size: 14px;
+    transition: 0.2s;
+}
+.clean-links a:hover { color: var(--red-brand); padding-left: 5px; }
+
+/* Red Button */
+.cta-red-btn {
+    display: inline-block;
+    background: var(--red-brand);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Footer Bottom Strip */
+.footer-bottom-line {
+    border-top: 1px solid #1d2636;
+    padding: 15px 0;
+    text-align: center;
+    color: var(--gray-links);
+    font-size: 13px;
+}
+
+.work-hours { margin-top: 20px; font-size: 13px; color: var(--gray-links); }
+.social-box { margin-top: 20px; }
+.social-box a { color: white; margin-right: 15px; font-size: 18px; }
+
+/* Mobile View Adjustments */
+@media (max-width: 900px) {
+    .footer-main-layout { flex-direction: column; align-items: center; text-align: center; }
+    .partner-right { text-align: center; max-width: 100%; }
+    .inline-info p { white-space: normal; } /* Wrap text on small screens */
+}
+
+/* Container for the Red Bar */
+.contact-header {
+    background-color: #e62e2d; /* Red background */
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Vertically centers the items */
+    padding: 15px 20px;
+    border-radius: 10px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    top: -30px; /* Floating effect */
+    z-index: 100;
+}
+
+/* Individual Item Styling */
+.header-item {
+    display: flex;
+    align-items: center; /* Forces icon and text to stay on the same horizontal line */
+    gap: 12px;
+    text-decoration: none !important; /* Removes blue underline */
+    color: #ffffff !important; /* Forces text to stay white */
+}
+
+/* Fix for nested links that might still show blue */
+.header-item span, 
+.header-item strong,
+.header-item i {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header-icon {
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.2); /* Subtle circle around icon */
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column; /* Keeps label above the number/email */
+}
+
+.support-text {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.phone-number, .email-address, .location-text {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Hover Effect */
+.header-item:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .contact-header {
+        /* --- Keep your existing logic --- */
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 20px; 
+        padding: 25px;
+        width: 95%; 
+        top: -60px; 
+
+        /* --- ADD THESE TWO LINES TO CENTER --- */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .header-item {
+        width: 100%; 
+    }
+
+    .phone-number, .email-address, .location-text {
+        font-size: 14px; 
+        white-space: normal; 
+        word-break: break-word; 
+    }
+}
