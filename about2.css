@@ -15,12 +15,9 @@ body {
 }
 
 .hero-wrapper {
-    min-height: 100vh;
-    height: 100vh; 
-    display: flex;
-    align-items: center;
-    overflow: hidden; 
-    padding: 0; /* Removed vertical padding to maximize space */
+    padding: 80px 0;        /* controlled spacing */
+    display: block;         /* content decides height */
+    overflow: hidden;
     position: relative;
 }
 /* BOLD GEOMETRIC DESIGN */
@@ -360,12 +357,12 @@ body {
 
 /* RESPONSIVE UPDATES */
 @media (max-width: 1100px) {
-    .hero-wrapper {
-        height: auto;      /* Allows the page to grow as long as the content */
-        min-height: 100vh;
-        padding: 60px 0;   /* Gives breathing room at top and bottom */
-        display: block;    /* Changes from flex to standard block flow */
-    }
+  .hero-wrapper {
+    padding: 50px 0;
+    min-height: auto;   /* 🔥 CRITICAL */
+    height: auto;       /* 🔥 CRITICAL */
+}
+
 
     .container {
         flex-direction: column;
