@@ -19,11 +19,31 @@ html {
     color: #fff;
 }
 
-@media  (max-width: 768px) {
+@media  (max-width: 1383px) {
     /* .site-header {
         height: auto;
         flex-direction: column;
     } */
+
+    .mobile-contact-btn {
+        display: inline-block !important;
+        background-color: #0A192F; /* Professional Navy */
+        color: #ffffff !important;
+        padding: 8px 16px;
+        border-radius: 50px; /* Pill shape */
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-right: 15px; /* Space between button and hamburger */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    
+    
  .site-header {
     height: 60px;
     background: var(--primary-red);
@@ -39,10 +59,15 @@ html {
     display: none !important;
   }
     .logo-text {
+      padding: 20px;
+      position: relative;
     font-size: 18px;
     font-weight: 700;
     color: #ffffff;
     white-space: nowrap;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    letter-spacing: -1px;
   }
 
     #hamburger{
@@ -52,25 +77,29 @@ html {
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: #0A192F;
+        border-radius: 0.813rem;
+  
     }
 
-    .ham {
-        width: 24px;
-        height: 2px;
-        background-color: #ffffff;
-        position: relative;
-        border-radius: 2px;
-    }
-   .ham::before,
-    .ham::after {
-  content: "";
-  position: absolute;
-  width: 24px;
-  height: 2px;
-  background-color: #ffffff;
-  border-radius: 2px;
-  left: 0;
-    }
+    .ham,
+.ham::before,
+.ham::after {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #0A192F; /* Changed from #ffffff to blue */
+    border-radius: 2px;
+    position: relative;
+}
+
+.ham::before,
+.ham::after {
+    position: absolute; /* Changed to absolute for proper stacking */
+    background-color: #0A192F; 
+    left: 0;
+}
 
     .ham::before {
   top: -7px;
@@ -84,6 +113,7 @@ html {
         transition:  all 0.3s ease-in-out;
         visibility: visible;
     }
+    
     
    
     /* added spaces in navlink buttons */
@@ -112,6 +142,8 @@ html {
         display: none;
     }
 
+
+
     .hero-text-box h1 {
         font-size: 38px;
     }
@@ -129,6 +161,7 @@ html {
     align-items: center;
     justify-content: flex-end;
     width: auto;
+    background-color: #fff;
   }
 
    #hamburger {
@@ -142,6 +175,8 @@ html {
     
 
     /* HAMBURGER BARS */
+  
+    
   .ham,
   .ham::before,
   .ham::after {

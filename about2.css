@@ -1,0 +1,449 @@
+:root {
+    --bg-dark: #1c2431;
+    --navy-card: #0a1d37;
+    --red: #e63946;
+    --white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+.hero-wrapper {
+    min-height: 100vh;
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    overflow: hidden; 
+    padding: 0; /* Removed vertical padding to maximize space */
+    position: relative;
+}
+/* BOLD GEOMETRIC DESIGN */
+.bg-accent { position: absolute; z-index: 0; pointer-events: none; }
+
+.red-top-left {
+    top: -50px; left: -50px;
+    width: 300px; height: 300px;
+    background: var(--red);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    opacity: 0.8;
+}
+
+.white-line-top {
+    top: 20px; left: 150px;
+    width: 2px; height: 400px;
+    background: rgba(255,255,255,0.1);
+    transform: rotate(45deg);
+}
+
+.red-bottom-right {
+    bottom: 0; right: 0;
+    width: 400px; height: 250px;
+    background: var(--red);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.container {
+    max-width: 1400px; /* Increased slightly to accommodate larger image */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    gap: 80px; /* Reduced gap slightly to fit the larger circle */
+    padding: 0 40px;
+}
+
+/* LEFT SIDE IMAGE EFFECTS - INCREASED SIZE */
+.visual-container {
+    flex: 1;
+    position: relative;
+}
+
+.image-frame {
+    width: 600px; /* Increased from 480px */
+    height: 600px; /* Increased from 480px */
+    border-radius: 50%;
+    border: 15px solid var(--navy-card);
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 50px rgba(230, 57, 70, 0.3);
+}
+
+.image-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+}
+
+.circle-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; /* Increased to match new image size */
+    height: 700px; /* Increased to match new image size */
+    background: radial-gradient(circle, rgba(230,57,70,0.15) 0%, transparent 70%);
+}
+
+.side-bar-accent {
+    position: absolute;
+    left: -40px; top: 50%;
+    width: 100px; height: 15px;
+    background: var(--red);
+    border-radius: 20px;
+    z-index: 3;
+}
+
+.dot-grid {
+    position: absolute;
+    bottom: 20px; right: 20px;
+    width: 120px; height: 120px;
+    background-image: radial-gradient(rgba(255,255,255,0.2) 2px, transparent 2px);
+    background-size: 15px 15px;
+    z-index: 1;
+}
+
+/* RIGHT SIDE CONTENT */
+.content-container {
+    flex: 1.3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-content-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Services take more room than Why Choose Us */
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.label {
+    color: var(--red);
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.main-title {
+    font-size: clamp(32px, 4vw, 48px); /* Responsive font size */
+    line-height: 1.1;
+    margin: 0 0 10px 0;
+}
+
+.highlight { color: var(--red); }
+
+.sub-text {
+    font-size: 14px; /* Reduced slightly for fit */
+    margin-bottom: 15px;
+    max-width: 600px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* THE BOLD DARK CARD */
+.glass-card {
+    background: var(--navy-card);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 20px 25px; /* Tighter padding */
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card-header i { font-size: 40px; color: var(--red); }
+
+.header-info h2 { margin: 0; font-size: 26px; }
+.header-info p { margin: 5px 0 0; color: var(--red); font-weight: 600; font-size: 14px; }
+
+.service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.s-pill {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px; /* Matches the look of the 2nd image */
+    border-radius: 12px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s ease;
+    border: 1px solid transparent;
+}
+.s-pill i {
+    font-size: 18px;
+    color: var(--red);
+    flex-shrink: 0;
+}
+
+.s-pill span {
+    line-height: 1.4;
+}
+
+.s-pill:hover {
+    background: rgba(230, 57, 70, 0.1);
+    border-color: var(--red);
+    transform: translateX(5px);
+}
+/* CTA & FOOTER */
+.hero-footer {
+    display: flex;
+    align-items: center; /* Vertically centers button and client info */
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.cta-btn {
+    background: var(--white);
+    color: var(--bg-dark);
+    padding: 20px 50px;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: 800;
+    transition: 0.3s;
+}
+
+.cta-btn:hover {
+    background: var(--red);
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+.user-stack { display: flex; align-items: center; }
+.user-stack img, .count-pill {
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    border: 3px solid var(--bg-dark);
+    margin-left: -15px;
+}
+
+.count-pill {
+    background: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+}
+
+.why-choose-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    font-size: 13px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.8);
+}
+
+.features-list i {
+    color: var(--red);
+}
+
+/* Adjust Image Size for "One Screen" fit */
+.image-frame {
+    width: 500px; /* Reduced from 600px to ensure it fits vertically */
+    height: 500px;
+}
+
+.circle-glow {
+    width: 550px;
+    height: 550px;
+}
+
+/* Tighten Footer */
+.hero-footer {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.about-more-btn {
+    background: var(--white);
+    color: #000;
+    padding: 12px 35px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.about-more-btn:hover {
+    background: var(--red);
+    color: var(--white);
+}
+
+/* Happy Clients Container */
+.client-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.user-stack { 
+    display: flex; 
+    align-items: center; 
+}
+
+.user-stack img, .count-pill {
+    width: 35px; /* Matches the smaller stack size in image 2 */
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-dark);
+    margin-right: -12px; /* Overlap effect */
+    object-fit: cover;
+}
+
+.count-pill {
+    background: #ff9800; /* Matching the orange + pill */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 18px;
+    position: relative;
+    margin-right: 0;
+}
+
+/* Client text styling */
+.client-text {
+    display: flex;
+    gap: 5px;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.client-number {
+    font-weight: 800;
+    color: var(--white);
+}
+
+.client-label {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.cta-btn {
+    padding: 15px 40px;
+}
+
+/* RESPONSIVE UPDATES */
+@media (max-width: 1100px) {
+    .hero-wrapper {
+        height: auto;      /* Allows the page to grow as long as the content */
+        min-height: 100vh;
+        padding: 60px 0;   /* Gives breathing room at top and bottom */
+        display: block;    /* Changes from flex to standard block flow */
+    }
+
+    .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+        padding: 0 20px;
+    }
+
+    /* Adjusting the Image for Mobile */
+    .image-frame {
+        width: 280px; 
+        height: 280px;
+        margin: 0 auto;
+        border-width: 8px; /* Thinner border for smaller screens */
+    }
+
+    .circle-glow {
+        width: 320px;
+        height: 320px;
+    }
+
+    .side-bar-accent {
+        display: none; /* Hide decorative elements that clutter mobile */
+    }
+
+    /* Adjusting the Content */
+    .content-container {
+        align-items: center; /* Centers the text and card */
+    }
+
+    .main-title {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .sub-text {
+        font-size: 14px;
+        margin: 0 auto 20px auto;
+    }
+
+    /* Making the Card & Grid Stack */
+    .glass-card {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px 15px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr; /* Stack services in one column */
+        text-align: left;           /* Keep text readable inside the pills */
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Footer / Button Alignment */
+    .hero-footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .client-info-container {
+        align-items: center; /* Center the "Happy Clients" text */
+    }
+
+    .user-stack {
+        margin-left: 15px; /* Adjusting for the negative margin overlap */
+    }
+}
+
+/* EXTRA SMALL SCREENS (Phones) */
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 24px;
+    }
+    
+    .image-frame {
+        width: 220px;
+        height: 220px;
+    }
+}
