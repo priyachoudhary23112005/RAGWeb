@@ -14,116 +14,128 @@ html, body {
     width: 100%;
 }
 
+
+
+/* --- CORRECTED MOBILE RESPONSIVE FIX --- */
+
+
 @media (max-width: 1383px) {
-    /* 1. Header Container */
-    .site-header {
-        height: 70px;
-        background: #ffffff;
-        display: flex;
-        align-items: center;
-        /* This pushes the logo to the left and EVERYTHING in .main-nav to the right */
-        justify-content: space-between; 
-        padding-right: 15px;
-        position: sticky;
-        top: 0;
-        z-index: 999;
-    }
 
-    /* 2. Logo Area - Slanted Red Box */
-    .logo-area {
-        background: #e61e25; 
-        height: 100%;
-        display: flex;
-        align-items: center;
-        padding: 0 40px 0 20px;
-        /* This creates the slanted effect seen in your image */
-        clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%); 
-    }
+  /* Header */
+  .site-header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 15px;
+  }
 
-    .logo-text {
-        font-size: 16px !important;
-        font-weight: 800 !important;
-        color: #ffffff !important;
-        white-space: nowrap;
-        text-transform: uppercase;
-    }
+    .header-content-right {
+    flex-direction: row;     /* 🔥 KEY FIX */
+    align-items: center;
+    height: 100%;
+  }
 
-    /* 3. Navigation Group (Button + Hamburger) */
-   .main-nav {
-        display: flex;
-        align-items: center;
-        gap: 15px; /* Adjust spacing between button and hamburger */
-        margin-left: auto; /* Force push to the right if needed */
-    }
+  /* Logo */
+  .logo-area {
+    min-width: 230px;   /* enough space for one line */
+    height: 100%;
+     padding: 0 30px 0 15px;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+  }
 
-    /* 4. Contact Button */
+  .logo-text {
+     font-size: 14px !important;  
+    font-weight: 800;
+    white-space: nowrap;         /* 🔥 KEY LINE */
+    line-height: 1;
+    letter-spacing: 0.3px;
+  }
+
+  /* Right nav group */
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    height: 100%;        /* override desktop 92px */
+    padding: 0;
+  }
+
+  /* ✅ SHOW Contact button on mobile */
   .mobile-contact-btn {
-        display: inline-flex; /* Changed from display: flex for better button sizing */
-        background-color: #0A192F;
-        color: #ffffff !important;
-        padding: 8px 20px;
-        border-radius: 50px;
-        font-size: 12px;
-        font-weight: 700;
-        text-decoration: none;
-        white-space: nowrap;
-    }
+    display: inline-flex;
+    background: #0A192F;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
 
-    .mobile-contact-btn:hover {
-        opacity: 0.9;
-    }
+  /* ✅ SHOW hamburger */
+  #hamburger {
+    display: flex;
+    width: 45px;
+    height: 40px;
+    background: #0A192F;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+      z-index: 1001;  
+  }
 
-    /* 5. Hamburger Button */
-    #hamburger {
-        background-color: #0A192F;
-        width: 45px;
-        height: 40px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-    }
+  .ham,
+  .ham::before,
+  .ham::after {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    position: relative;
+  }
 
-    .ham, .ham::before, .ham::after {
-        content: "";
-        display: block;
-        width: 22px;
-        height: 2px;
-        background-color: #ffffff !important;
-        border-radius: 2px;
-        position: relative;
-    }
+  .ham::before {
+    position: absolute;
+    top: -7px;
+  }
 
-    .ham::before { position: absolute; top: -7px; left: 0; }
-    .ham::after { position: absolute; top: 7px; left: 0; }
+  .ham::after {
+    position: absolute;
+    top: 7px;
+  }
 
-    /* 6. Dropdown Menu */
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: #ffffff;
-        flex-direction: column;
-        display: none;
-        z-index: 1000;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
+  /* Mobile dropdown menu */
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    display: none;
+    z-index: 1000;
+  }
 
-    #hamm:checked ~ .nav-links {
-        display: flex !important;
-    }
+  /* Toggle menu */
+  #hamm:checked ~ .nav-links {
+    display: flex;
+  }
 
-    .nav-links li {
-        list-style: none;
-        padding: 20px;
-        text-align: center;
-        border-bottom: 1px solid #eee;
-    }
+  .nav-links li {
+    padding: 18px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
 
-    /* Hide unnecessary desktop elements */
-    .top-info-bar, .nav-extra, .hero-left-dark {
-        display: none !important;
-    }
+  /* Hide desktop-only elements */
+  .top-info-bar,
+  .nav-extra,
+  .hero-left-dark {
+    display: none !important;
+  }
 }

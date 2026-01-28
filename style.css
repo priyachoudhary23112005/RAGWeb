@@ -214,6 +214,8 @@ body {
 }
 
 @media (max-width: 768px) {
+
+    
     .info-card {
         flex: 1 1 calc(50% - 20px); /* 2 cards per row on small tablets */
     }
