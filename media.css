@@ -1,8 +1,8 @@
 /* for smooth scrolling */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
@@ -11,224 +11,139 @@ html, body {
     position: relative;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
-
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
-/* ...................  */
-.hero-text-box p{
+
+.hero-text-box p {
     color: #fff;
 }
 
-@media  (max-width: 1383px) {
-    /* .site-header {
-        height: auto;
-        flex-direction: column;
-    } */
+@media (max-width: 1383px) {
+    @media (max-width: 1383px) {
+    /* 1. Header: Force space between Logo (Left) and Nav (Right) */
+    .site-header {
+        height: 70px;
+        background: #ffffff; 
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-between !important; /* Pushes items to opposite ends */
+        padding-left: 0;
+        border-bottom: 1px solid #eee;
+    }
 
+    /* 2. Logo Area: Flush to the far left */
+    .logo-area {
+        background: #e61e25; 
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 30px 0 20px;
+        margin: 0;
+        /* Professional slant effect */
+        clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+        flex-shrink: 0;
+    }
+
+    .logo-text {
+        font-size: 15px !important;
+        font-weight: 800 !important;
+        color: #ffffff !important;
+        white-space: nowrap;
+        letter-spacing: 0.5px;
+    }
+
+    /* 3. Navigation: Pushed to the far right side */
+    .main-nav {
+        display: flex !important;
+        align-items: center;
+        gap: 12px; 
+        padding-right: 15px; /* Spacing from the right edge of the screen */
+        background: transparent !important;
+        margin-left: auto; /* Extra insurance to keep it right */
+    }
+
+    /* 4. Contact Us Button */
     .mobile-contact-btn {
         display: inline-block !important;
-        background-color: #0A192F; /* Professional Navy */
+        background-color: #0A192F;
         color: #ffffff !important;
         padding: 8px 16px;
-        border-radius: 50px; /* Pill shape */
-        font-size: 13px;
+        border-radius: 50px;
+        font-size: 11px;
         font-weight: 700;
         text-decoration: none;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-right: 15px; /* Space between button and hamburger */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        transition: all 0.3s ease;
-        border: 1px solid rgba(255,255,255,0.1);
+        white-space: nowrap;
     }
 
-    
-    
- .site-header {
-    height: 60px;
-    background: var(--primary-red);
-  }
-
-  .logo-area {
-    width: auto;
-    background: transparent;
-    clip-path: none;
-  }
-
-  .top-info-bar {
-    display: none !important;
-  }
-    .logo-text {
-      padding: 20px;
-      position: relative;
-    font-size: 18px;
-    font-weight: 700;
-    color: #ffffff;
-    white-space: nowrap;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    letter-spacing: -1px;
-  }
-
-    #hamburger{
-        height: 30px;
-        width: 30px;
-        position: relative;
+    /* 5. Menu Bar (Hamburger) */
+    #hamburger {
+        background-color: #0A192F;
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #0A192F;
-        border-radius: 0.813rem;
+        cursor: pointer;
+    }
+
   
+    
+    /* Hide desktop-only elements */
+    .top-info-bar, .nav-extra {
+        display: none !important;
+    }
+}
+    .ham, .ham::before, .ham::after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: #ffffff !important; /* White bars on dark button */
+        border-radius: 2px;
+        position: relative;
     }
 
-    .ham,
-.ham::before,
-.ham::after {
-    content: "";
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: #0A192F; /* Changed from #ffffff to blue */
-    border-radius: 2px;
-    position: relative;
-}
+    .ham::before { position: absolute; top: -6px; left: 0; }
+    .ham::after { position: absolute; top: 6px; left: 0; }
 
-.ham::before,
-.ham::after {
-    position: absolute; /* Changed to absolute for proper stacking */
-    background-color: #0A192F; 
-    left: 0;
-}
-
-    .ham::before {
-  top: -7px;
-}
-
-.ham::after {
-  top: 7px;
-}
-    #hamm:checked ~ .nav-extra{
-        top: -20px;
-        transition:  all 0.3s ease-in-out;
-        visibility: visible;
+    /* 6. Dropdown Menu (Hidden by default) */
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
-    
-    
-   
-    /* added spaces in navlink buttons */
-    .nav-links li{
-        padding: 12px 0;
+
+    #hamm:checked ~ .nav-links {
+        display: flex !important;
+    }
+
+    .nav-links li {
+        padding: 15px;
         text-align: center;
-    }
-    .nav-extra{
-       display: none;
+        border-bottom: 1px solid #eee;
     }
 
-
-    .hero-left-dark {
-        /* padding: 80px 5%; */
-        /* height: auto; */
-        display: none;
+    .nav-links li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
     }
-
-      .hero-right-image {
-    height: auto;
-    min-height: 280px; /* optional: for nice look */
-    background-size: cover;
-    background-position: center;
-  }
-    .hero-right-image::before {
-        display: none;
-    }
-
-
-
-    .hero-text-box h1 {
-        font-size: 38px;
-    }
-    .logo-text {
-        font-size: 18px !important; /* Medium size for mobile */
-        padding: 0 !important;
-        color: #ffffff !important;
-        white-space: nowrap !important;
-        font-weight: 700 !important;
-    }
-
-    .main-nav {
-        height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: auto;
-    background-color: #fff;
-  }
-
-   #hamburger {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
 }
-    
 
-    /* HAMBURGER BARS */
-  
-    
-  .ham,
-  .ham::before,
-  .ham::after {
-    content: "";
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: #ffffff;
-    border-radius: 2px;
-    position: relative;
-  }
-  #hamm{
-    display: none;
-  }
-   .nav-links {
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    flex-direction: column;
-    display: none;
-  }
-
-  #hamm:checked ~ .nav-links {
-    display: flex;
-  }
-.nav-links li {
-    padding: 12px 0;
-    text-align: center;
-  }
-
-  .nav-extra {
-    display: none !important;
-  }
-}
-/* Sticky header effect */
+/* Sticky behavior */
 .site-header {
     position: sticky;
     top: 0;
     z-index: 999;
-    transition: all 0.3s ease;
-}
-
-/* Shrink effect on scroll */
-.site-header.scrolled {
-    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-    background: #ffffff;
+    background: #fff; /* White background when scrolling on desktop */
 }
