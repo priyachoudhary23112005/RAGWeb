@@ -139,3 +139,18 @@ html, body {
     display: none !important;
   }
 }
+
+/* ===== CORE STRENGTHS: MOBILE ONE CARD PER ROW ===== */
+@media (max-width: 768px) {
+
+  .grid-layout.five-cols {
+    flex-direction: column;   /* one card per row */
+    gap: 16px;
+  }
+
+  .grid-layout.five-cols .info-card {
+    width: 100%;
+    flex: none;
+  }
+
+}
