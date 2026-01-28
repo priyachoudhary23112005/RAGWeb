@@ -22,7 +22,6 @@ body {
 
 .about-section {
     padding: 60px 0;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     background-color: white;

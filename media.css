@@ -154,3 +154,36 @@ html, body {
   }
 
 }
+
+/* ===== EXTRA SMALL DEVICES (360px FIX) ===== */
+@media (max-width: 400px) {
+
+  /* Reduce logo width */
+  .logo-area {
+    min-width: 190px;
+    padding: 0 20px 0 12px;
+  }
+
+  .logo-text {
+    font-size: 13px !important;
+  }
+
+  /* Shrink Contact button */
+  .mobile-contact-btn {
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+
+  /* Ensure hamburger is fully visible */
+  #hamburger {
+    width: 40px;
+    height: 38px;
+    flex-shrink: 0; /* 🔥 prevents squeezing */
+  }
+
+  /* Reduce nav gap slightly */
+  .main-nav {
+    gap: 8px;
+  }
+}
+
