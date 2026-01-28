@@ -307,6 +307,10 @@ body {
     gap: 5px;
 }
 
+.client-stats p{
+    color: #fff;
+}
+
 .user-stack { 
     display: flex; 
     align-items: center; 
@@ -394,7 +398,7 @@ body {
 
     .main-title {
         font-size: 28px;
-        margin-bottom: 15px;
+        padding:  15px;
     }
 
     .sub-text {

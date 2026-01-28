@@ -299,17 +299,25 @@
 
 /* Container for the Red Bar */
 .contact-header {
-    background-color: #e62e2d; /* Red background */
+    background-color: var(--red-brand);
+    /* 1. Use a width that leaves a clear gap (e.g., 90%) */
+    width: 90%; 
+    /* 2. Set a maximum width so it doesn't get too stretched on huge screens */
+    max-width: 1200px; 
+    border-radius: 12px;
     display: flex;
     justify-content: space-around;
-    align-items: center; /* Vertically centers the items */
-    padding: 15px 20px;
-    border-radius: 10px;
-    width: 90%;
-    margin: 0 auto;
-    position: relative;
-    top: -30px; /* Floating effect */
+    padding: 18px 20px; /* Increased horizontal padding */
+    position: absolute;
+    top: -45px;
+    /* 3. Perfect centering logic */
+    left: 50%;
+    transform: translateX(-50%); 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    flex-wrap: wrap;
     z-index: 100;
+    /* 4. Ensure it doesn't clip on the edges */
+    box-sizing: border-box; 
 }
 
 /* Individual Item Styling */
@@ -362,18 +370,17 @@
 
 @media (max-width: 768px) {
     /* 1. Center the box and reduce internal height */
-    .contact-header {
-        position: absolute;
-        width: 90%;      
+   .contact-header {
+        /* Keep the width at 90% to ensure 5% gap on both left and right */
+        width: 90%; 
         left: 50%;
         transform: translateX(-50%);
-        top: -40px; /* Moved slightly higher to tuck into the margin */
+        top: -40px;
         
         flex-direction: column; 
         align-items: flex-start; 
-        gap: 12px;  /* Tightened space between rows */
-        padding: 15px 20px; /* Slimmer vertical padding */
-        z-index: 100;
+        gap: 12px;
+        padding: 15px 20px;
     }
 
     
@@ -387,13 +394,11 @@
     }
 
     /* 3. Keep content aligned inside the box */
-    .header-item {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        gap: 10px;
+   .header-item {
+        /* Ensure content doesn't overflow the 90% width */
+        width: 100%; 
+        overflow: hidden; 
     }
-
     .phone-number, .email-address, .location-text {
         font-size: 14px; 
         line-height: 1.2;
