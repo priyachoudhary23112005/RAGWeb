@@ -157,6 +157,24 @@ body {
         font-size: 1.8rem;
     }
 
+     .about-section {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+    margin: 0 !important;
+      width: 100%;
+  overflow: hidden; 
+  }
+
+  .about-section .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .content-side {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
     .sub-title {
         margin-bottom: 30px;
     }
@@ -192,6 +210,25 @@ body {
     .cta-group {
         justify-content: center;
     }
+      .about-section .container {
+    display: flex;
+    flex-direction: column; /* Stacks the content */
+    align-items: center;
+    padding: 20px; 
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
+  }
+
+ .image-side {
+    display: none !important;
+    height: 0; /* Ensures no height is reserved */
+    margin: 0;
+    padding: 0;
+  }
+
+  .content-side {
+    width: 100%;
+  }
 }
 
 
